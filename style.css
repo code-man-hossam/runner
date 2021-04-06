@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-game {
+  position: absolute;
+  width: 35rem;
+  height: 20rem;
+  background: rgba(78, 13, 199, 0.7);
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  transition: 1s;
+}
+
+.start-game.remove {
+  display: none;
+}
+
+.start-game h1,
+h3 {
+  color: #070642;
+  font-family: sans-serif;
+}
+
+#timer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 2rem;
+  height: 1rem;
+}
+
+.board {
+  width: 800px;
+  height: 60%;
+  background-color: aqua;
+  position: relative;
+  overflow: hidden;
+}
+
+.board .ground {
+  position: absolute;
+  width: 3000%;
+  height: 3rem;
+  bottom: 0;
+  background-image: url('https://s3.envato.com/files/294310149/Asset/Background/Background%20Game/BG%20PNG/ground.png');
+  animation: move 200s linear infinite;
+}
+
+@keyframes move {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -100%;
+  }
+}
+
+.board .runner {
+  position: absolute;
+  bottom: -1rem;
+  left: 10rem;
+  width: 5rem;
+  height: 23rem;
+}
+
+.runner img {
+  position: absolute;
+  display: none;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 35%;
+  object-fit: cover;
+}
+.runner img.show {
+  display: block;
+}
+
+.jump {
+  animation: jump 1s ease-in-out;
+}
+
+@keyframes jump {
+  0% {
+    bottom: 0;
+  }
+  /* 25% {
+    bottom: 100px;
+  } */
+  50% {
+    bottom: 150px;
+  }
+  /* 75% {
+    bottom: 100px;
+  } */
+  100% {
+    bottom: 0;
+  }
+}
+
+.cactus {
+  position: absolute;
+  display: none;
+  width: 5rem;
+  height: 4rem;
+  right: -20px;
+  bottom: 3px;
+  animation: attck 2s linear infinite;
+}
+
+.cactus.show {
+  display: block;
+}
+
+@keyframes attck {
+  from {
+    right: -20px;
+  }
+  to {
+    right: 800px;
+  }
+}
+
+.cactus img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cactusLose {
+  position: absolute;
+  display: none;
+  width: 5rem;
+  height: 4rem;
+  left: 10rem;
+  bottom: 3px;
+}
+
+.cactusLose.show {
+  display: block;
+}
+
+.cactusLose img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
